@@ -16,7 +16,6 @@ Window::Window():instance_(::GetModuleHandle(nullptr)),
 	current_window_ = nullptr;
 
 	::ZeroMemory(&wnd_class_, sizeof(WNDCLASSEX));
-	// Create default window class
 	if (!::GetClassInfoEx(instance_, default_wnd_class_name_.c_str(), &wnd_class_)) {
 		wnd_class_.cbSize = sizeof(wnd_class_);
 		wnd_class_.style = CS_DBLCLKS | CS_HREDRAW | CS_VREDRAW;;

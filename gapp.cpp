@@ -31,7 +31,9 @@ static bool CheckInstance(LPCWSTR mutex_name, LPCWSTR class_name) {
 		}
 
 		return true;
-	}
+	} 
+
+
 	return false;
 }
 
@@ -42,6 +44,7 @@ GApp::~GApp() {
 
 BOOL GApp::InitInstance() {
 	if (CheckInstance(APP_MUTEX, L"Win32Dev")) {
+		MessageBox(NULL, TEXT("Already running"), TEXT("ERROR"), MB_OK);
 		return false;
 	}
 
