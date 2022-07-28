@@ -1,17 +1,33 @@
 #include <Windows.h>
 #include <tchar.h>
+#include <xstring>
+#include <iostream>
+
+#include "gapp.h"
+using namespace std;
 
 HANDLE g_hmutex;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 
+
 int WINAPI WinMain(HINSTANCE instance, HINSTANCE prev_instance, LPSTR lpCmdLine, int cmd_show) {
+	GApp app;
+	return app.Run();
+}
+
+int WINAPI WinMain111(HINSTANCE instance, HINSTANCE prev_instance, LPSTR lpCmdLine, int cmd_show) {
 	HANDLE g_hmutex = CreateMutex(NULL, FALSE, TEXT("{FA531CC1-0497-11d3-A180-00105A276C3E}"));
 	if (GetLastError() == ERROR_ALREADY_EXISTS) {
 		MessageBox(NULL, TEXT("App already run"), TEXT("Message"), MB_OK);
 		CloseHandle(g_hmutex);
 		return 0;
 	}
+
+	WCHAR path[MAX_PATH];
+	DWORD len = ::GetCurrentDirectory(MAX_PATH, path);
+	wcout << std::wstring(path) << endl;
+
 
 	WNDCLASSEX wndclass;
 	TCHAR class_name[] = TEXT("FirstWindow");
@@ -39,6 +55,7 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE prev_instance, LPSTR lpCmdLine,
 	
 	ShowWindow(hwnd, cmd_show);
 	UpdateWindow(hwnd);
+
 
 	while (GetMessage(&msg, NULL, 0, 0) != 0) {
 		TranslateMessage(&msg);
