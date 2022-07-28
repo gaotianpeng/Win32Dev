@@ -17,19 +17,16 @@ Window::Window():instance_(::GetModuleHandle(nullptr)),
 
 	::ZeroMemory(&wnd_class_, sizeof(WNDCLASSEX));
 	// Create default window class
-	WNDCLASSEX wc = { 0 };
-	if (!::GetClassInfoEx(instance_, default_wnd_class_name_.c_str(), &wc)) {
-		wc.cbSize = sizeof(wc);
-		wc.style = CS_DBLCLKS | CS_HREDRAW | CS_VREDRAW;;
-		wc.lpfnWndProc = WndProcStatic;
-		wc.hInstance = instance_;
-		wc.hCursor = ::LoadCursor(nullptr, IDC_ARROW);
-		wc.hbrBackground = reinterpret_cast<HBRUSH>(::GetStockObject(WHITE_BRUSH));
-		wc.lpszClassName = default_wnd_class_name_.c_str();
-		::RegisterClassEx(&wc);
-
+	if (!::GetClassInfoEx(instance_, default_wnd_class_name_.c_str(), &wnd_class_)) {
+		wnd_class_.cbSize = sizeof(wnd_class_);
+		wnd_class_.style = CS_DBLCLKS | CS_HREDRAW | CS_VREDRAW;;
+		wnd_class_.lpfnWndProc = WndProcStatic;
+		wnd_class_.hInstance = instance_;
+		wnd_class_.hCursor = ::LoadCursor(nullptr, IDC_ARROW);
+		wnd_class_.hbrBackground = reinterpret_cast<HBRUSH>(::GetStockObject(WHITE_BRUSH));
+		wnd_class_.lpszClassName = default_wnd_class_name_.c_str();
+		::RegisterClassEx(&wnd_class_);
 	}
-	wnd_class_ = wc;
 }
 
 Window::Window(HWND hwnd): instance_(::GetModuleHandle(nullptr)),
@@ -165,14 +162,12 @@ BOOL Window::BringWindowToTop() const {
 	return ::BringWindowToTop(h_wnd_);
 }
 
-
 BOOL Window::OnCommand(WPARAM wparam, LPARAM LPARAM) {
 	return true;
 }
 
 void Window::OnContextMenu(HWND hwnd, POINT pt) {
 }
-
 
 void Window::OnCreate(HWND hwnd, LPCREATESTRUCT create_struct) {
 	LOGFONT logfont;
@@ -181,8 +176,6 @@ void Window::OnCreate(HWND hwnd, LPCREATESTRUCT create_struct) {
 	::SendMessage(h_wnd_, WM_SETFONT, reinterpret_cast<WPARAM>(font_), FALSE);
 
 	cout << "Window::OnCreate ------------" << endl;
-	ShowWindow(hwnd, 1);
-	UpdateWindow(hwnd);
 }
 
 BOOL Window::OnDestroy() {
@@ -191,6 +184,7 @@ BOOL Window::OnDestroy() {
 }
 
 void Window::OnDropFiles(HDROP drop_info) {
+	cout << "Window::OnDropFiles ------------" << endl;
 }
 
 void Window::OnGetMinMaxInfo(LPMINMAXINFO mmi) {
