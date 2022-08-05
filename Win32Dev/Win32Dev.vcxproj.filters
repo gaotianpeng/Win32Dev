@@ -15,24 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="win_main.cc">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="application.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="window.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="window_map.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="gapp.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="application.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gapp.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="window.h">
@@ -41,11 +30,22 @@
     <ClInclude Include="window_map.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="gapp.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="config.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="application.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gapp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="win_main.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="window_map.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

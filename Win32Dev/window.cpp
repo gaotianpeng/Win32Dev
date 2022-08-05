@@ -18,7 +18,7 @@ Window::Window():instance_(::GetModuleHandle(nullptr)),
 	::ZeroMemory(&wnd_class_, sizeof(WNDCLASSEX));
 	if (!::GetClassInfoEx(instance_, default_wnd_class_name_.c_str(), &wnd_class_)) {
 		wnd_class_.cbSize = sizeof(wnd_class_);
-		wnd_class_.style = CS_DBLCLKS | CS_HREDRAW | CS_VREDRAW;;
+		wnd_class_.style =  CS_HREDRAW | CS_VREDRAW;
 		wnd_class_.lpfnWndProc = WndProcStatic;
 		wnd_class_.hInstance = instance_;
 		wnd_class_.hCursor = ::LoadCursor(nullptr, IDC_ARROW);
@@ -93,7 +93,7 @@ HWND Window::Create(DWORD ex_style, LPCWSTR class_name, LPCWSTR window_name,
 	}
 
 	current_window_ = nullptr;
-
+	ShowWindow(h_wnd_, 1);
 	return h_wnd_;
 }
 
@@ -317,6 +317,14 @@ LRESULT Window::DefaultWndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam
 		case WM_WINDOWPOSCHANGING:
 			OnWindowPosChanging(reinterpret_cast<LPWINDOWPOS>(lparam));
 			break;
+		case WM_ACTIVATE: {
+			cout << "on activate " << endl;
+			break;
+		}
+		case WM_KILLFOCUS: {
+			cout << "on lose focus " << endl;
+			break;
+		}
 		default: {
 			break;
 		}
