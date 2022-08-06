@@ -77,7 +77,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         printf("window is activated \n");
         break;
     case WM_KEYDOWN:
-           
+        break;
     }
 
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
