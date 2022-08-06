@@ -325,6 +325,8 @@ LRESULT Window::DefaultWndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam
 			cout << "on lose focus " << endl;
 			break;
 		}
+		case WM_ACTIVATE:
+			break;
 		default: {
 			break;
 		}

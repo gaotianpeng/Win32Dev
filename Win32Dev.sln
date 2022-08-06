@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloDLL", "HelloDLL\HelloD
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GetMd5", "GetMd5\GetMd5.vcxproj", "{C284A9DB-6698-471E-8C68-C9E54C9B9D1E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Typer", "Typer\Typer.vcxproj", "{175C6622-52AB-4F0D-8958-E310AA05702C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -54,6 +56,14 @@ Global
 		{C284A9DB-6698-471E-8C68-C9E54C9B9D1E}.Release|x64.Build.0 = Release|x64
 		{C284A9DB-6698-471E-8C68-C9E54C9B9D1E}.Release|x86.ActiveCfg = Release|Win32
 		{C284A9DB-6698-471E-8C68-C9E54C9B9D1E}.Release|x86.Build.0 = Release|Win32
+		{175C6622-52AB-4F0D-8958-E310AA05702C}.Debug|x64.ActiveCfg = Debug|x64
+		{175C6622-52AB-4F0D-8958-E310AA05702C}.Debug|x64.Build.0 = Debug|x64
+		{175C6622-52AB-4F0D-8958-E310AA05702C}.Debug|x86.ActiveCfg = Debug|Win32
+		{175C6622-52AB-4F0D-8958-E310AA05702C}.Debug|x86.Build.0 = Debug|Win32
+		{175C6622-52AB-4F0D-8958-E310AA05702C}.Release|x64.ActiveCfg = Release|x64
+		{175C6622-52AB-4F0D-8958-E310AA05702C}.Release|x64.Build.0 = Release|x64
+		{175C6622-52AB-4F0D-8958-E310AA05702C}.Release|x86.ActiveCfg = Release|Win32
+		{175C6622-52AB-4F0D-8958-E310AA05702C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
