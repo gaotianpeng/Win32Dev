@@ -54,13 +54,34 @@ IDR_MENU1 MENU
 BEGIN
     POPUP "文件"
     BEGIN
-        MENUITEM "新建",                          ID_40002
-        MENUITEM "打开",                          ID_40003
-        MENUITEM "保存",                          ID_40004
+        MENUITEM "新建(&N)",                      ID_FILE_NEW
+        MENUITEM "打开",                          ID_FILE_OPEN
+        MENUITEM "保存",                          ID_FILE_SAVE
         MENUITEM SEPARATOR
-        MENUITEM "另存为",                         ID_40005
-        MENUITEM "退出",                          ID_40006
+        MENUITEM "另存为",                         ID_FILE_SAVEAS
+        MENUITEM "退出",                          ID_FILE_EXIT
     END
+    POPUP " 编辑", INACTIVE
+    BEGIN
+        MENUITEM "剪切",                          ID_EDIT_CUT
+        MENUITEM "复制",                          ID_EDIT_COPY
+        MENUITEM "粘贴",                          ID_EDIT_PASTE
+    END
+    POPUP "帮助"
+    BEGIN
+        MENUITEM "关于",                          ID_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
 END
 
 #endif    // 中文(简体，中国) resources
