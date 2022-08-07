@@ -18,6 +18,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Typer", "Typer\Typer.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Draw", "Draw\Draw.vcxproj", "{9AB9217F-A18E-4AD7-838A-D0A0CCE975B3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clock", "Clock\Clock.vcxproj", "{D894904F-8597-4261-A39B-472CFB97B9E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -74,6 +76,14 @@ Global
 		{9AB9217F-A18E-4AD7-838A-D0A0CCE975B3}.Release|x64.Build.0 = Release|x64
 		{9AB9217F-A18E-4AD7-838A-D0A0CCE975B3}.Release|x86.ActiveCfg = Release|Win32
 		{9AB9217F-A18E-4AD7-838A-D0A0CCE975B3}.Release|x86.Build.0 = Release|Win32
+		{D894904F-8597-4261-A39B-472CFB97B9E5}.Debug|x64.ActiveCfg = Debug|x64
+		{D894904F-8597-4261-A39B-472CFB97B9E5}.Debug|x64.Build.0 = Debug|x64
+		{D894904F-8597-4261-A39B-472CFB97B9E5}.Debug|x86.ActiveCfg = Debug|Win32
+		{D894904F-8597-4261-A39B-472CFB97B9E5}.Debug|x86.Build.0 = Debug|Win32
+		{D894904F-8597-4261-A39B-472CFB97B9E5}.Release|x64.ActiveCfg = Release|x64
+		{D894904F-8597-4261-A39B-472CFB97B9E5}.Release|x64.Build.0 = Release|x64
+		{D894904F-8597-4261-A39B-472CFB97B9E5}.Release|x86.ActiveCfg = Release|Win32
+		{D894904F-8597-4261-A39B-472CFB97B9E5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
