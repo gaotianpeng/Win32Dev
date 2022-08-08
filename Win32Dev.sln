@@ -22,6 +22,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clock", "Clock\Clock.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LocalTime", "LocalTime\LocalTime.vcxproj", "{E06C85DC-B046-4F23-869C-837698B4589B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DDB", "DDB\DDB.vcxproj", "{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -94,6 +96,14 @@ Global
 		{E06C85DC-B046-4F23-869C-837698B4589B}.Release|x64.Build.0 = Release|x64
 		{E06C85DC-B046-4F23-869C-837698B4589B}.Release|x86.ActiveCfg = Release|Win32
 		{E06C85DC-B046-4F23-869C-837698B4589B}.Release|x86.Build.0 = Release|Win32
+		{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}.Debug|x64.ActiveCfg = Debug|x64
+		{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}.Debug|x64.Build.0 = Debug|x64
+		{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}.Debug|x86.ActiveCfg = Debug|Win32
+		{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}.Debug|x86.Build.0 = Debug|Win32
+		{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}.Release|x64.ActiveCfg = Release|x64
+		{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}.Release|x64.Build.0 = Release|x64
+		{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}.Release|x86.ActiveCfg = Release|Win32
+		{14F1475F-A6CB-4853-99B7-B8C6BC24AF3C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
