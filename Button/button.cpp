@@ -3,6 +3,10 @@
 #include <strsafe.h>
 #include "resource.h"
 
+#pragma comment(linker, "\"/manifestdependency:type='win32' \
+    name='Microsoft.Windows.Common-Controls' version='6.0.0.0' \
+    processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 // 按下默认按钮
@@ -73,6 +77,12 @@ struct {
 
 #define NUM (sizeof(Buttons) / sizeof(Buttons[0]))
 
+// 响应Tab键的8个子窗口控件
+int idFocus[] = { IDC_PUSHBUTTON, IDC_ICONBUTTON, IDC_BITMAPBUTTON, IDC_OWNERDRAWBUTTON,
+			IDC_AUTORADIOBUTTON1, IDC_AUTOCHECKBOX1, IDC_AUTO3STATE1, IDC_DEFPUSHBUTTON };
+// 当前具有键盘焦点的按钮索引
+int idFocusIndex;
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	static HWND hwndButton[NUM];	// 子窗口控件句柄数组
 	int arrPos[NUM] = { 10, 40, 70, 100,         // 每个子窗口控件的起始Y坐标
@@ -82,6 +92,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	490 };
 	
 	LPDRAWITEMSTRUCT lpDIS;
+	HFONT hFont;
 
 	switch (uMsg) {
 	case WM_CREATE:
@@ -110,6 +121,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 		CheckRadioButton(hWnd, IDC_AUTORADIOBUTTON1, IDC_AUTORADIOBUTTON3, IDC_AUTORADIOBUTTON2);
 		CheckDlgButton(hWnd, IDC_AUTOCHECKBOX3, BST_CHECKED);
 		CheckDlgButton(hWnd, IDC_AUTO3STATE2, BST_INDETERMINATE);
+
+		// 设置子窗口控件字体
+		hFont = CreateFont(12, 0, 0, 0, 0, 0, 0, 0, GB2312_CHARSET, 0, 0, 0, 0, TEXT("宋体"));
+		for (int i = 0; i < NUM; i++) {
+			SendMessage(hwndButton[i], WM_SETFONT, (WPARAM)hFont, FALSE);
+		}
+		return 0;
+	case WM_SETFOCUS:
+		SetFocus(GetDlgItem(hWnd, idFocus[idFocusIndex]));
+		return 0;
+	case WM_CHAR:
+		if (wParam == VK_TAB) {
+			idFocusIndex += GetKeyState(VK_SHIFT) < 0 ? 7 : 1;
+			idFocusIndex %= 8;
+			SetFocus(GetDlgItem(hWnd, idFocus[idFocusIndex]));
+		}
+		if (wParam == VK_RETURN) {
+			SendDlgItemMessage(hWnd, IDC_DEFPUSHBUTTON, BM_CLICK, 0, 0);
+		}
 		return 0;
 	case WM_COMMAND:
 		if (HIWORD(wParam) == BN_CLICKED) {
@@ -135,8 +165,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 		lpDIS = (LPDRAWITEMSTRUCT)lParam;
 		// 先把按钮矩形填充为和窗口背景一样的白色, 然后画一个黑色圆角矩形
 		SelectObject(lpDIS->hDC, GetStockObject(NULL_PEN));
-		SelectObject(lpDIS->hDC, GetStockObject(WHITE_BRUSH));
-		Rectangle(lpDIS->hDC, 0, 0, lpDIS->rcItem.right + 1, lpDIS->rcItem.bottom + 1);
+		//SelectObject(lpDIS->hDC, GetStockObject(WHITE_BRUSH));
+		//Rectangle(lpDIS->hDC, 0, 0, lpDIS->rcItem.right + 1, lpDIS->rcItem.bottom + 1);
 		SelectObject(lpDIS->hDC, GetStockObject(BLACK_BRUSH));
 		RoundRect(lpDIS->hDC, 0, 0, lpDIS->rcItem.right + 1, lpDIS->rcItem.bottom + 1, 20, 20);
 
